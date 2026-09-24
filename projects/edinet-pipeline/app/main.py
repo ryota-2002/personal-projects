@@ -18,7 +18,7 @@ def main() -> int:
         正常終了時は0、設定、API呼び出し、S3保存の失敗時は1。
     """
     try:
-        target_date = datetime.now(JST).date()
+        target_date = datetime.now(JST).date()- timedelta(days=1)
         api_key = get_api_key()
         payload = get_document_list(target_date, api_key)
         bucket = get_s3_bucket()
